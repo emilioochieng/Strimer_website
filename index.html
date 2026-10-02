@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Strimer - Ultimate all-in-one entertainment platform. Movies, series, songs, live TV, betting, AI tools, gaming and more. One subscription, unlimited access.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Strimer - Ultimate Entertainment Hub">
+    <meta property="og:description" content="All your favorite streaming services, betting sites, AI tools and gaming in one place. Pay once, enjoy everything.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Strimer - Ultimate Entertainment Hub">
+    <meta name="twitter:description" content="All your favorite streaming services, betting sites, AI tools and gaming in one place.">
+    <meta name="robots" content="index, follow">
+    <title>Strimer - Ultimate Entertainment Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #1F2937;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #3B82F6;
+            border-bottom-color: #3B82F6;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1F2937 0%, #2d3748 50%, #3B82F6 100%);
+            color: #fff;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://placehold.co/1920x1080/1F2937/FFFFFF?text=Strimer+Entertainment') center/cover;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3B82F6;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1F2937;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #3B82F6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: #1F2937;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+        }
+
+        /* Streaming Section */
+        .streaming {
+            padding: 5rem 0;
+            background: #f8fafc;
+        }
+
+        .streaming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .streaming-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .streaming-card:hover {
+            transform: scale(1.03);
+        }
+
+        .streaming-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .streaming-card-content {
+            padding: 1.5rem;
+        }
+
+        .streaming-card h3 {
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .streaming-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Betting Section */
+        .betting {
+            padding: 5rem 0;
+        }
+
+        .betting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .betting-card {
+            background: linear-gradient(135deg, #1F2937 0%, #2d3748 100%);
+            color: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .betting-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(31, 41, 55, 0.3);
+        }
+
+        .betting-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        /* AI Section */
+        .ai-section {
+            padding: 5rem 0;
+            background: #f8fafc;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .ai-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .ai-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid #3B82F6;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .pricing-card h3 {
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3B82F6;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            color: #6b7280;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pricing-card li::before {
+            content: "✓ ";
+            color: #3B82F6;
+            font-weight: bold;
+        }
+
+        .pricing-btn {
+            display: inline-block;
+            background: #3B82F6;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pricing-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* Gaming Section */
+        .gaming {
+            padding: 5rem 0;
+            background: #f8fafc;
+        }
+
+        .gaming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .gaming-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .gaming-card:hover {
+            transform: scale(1.03);
+        }
+
+        .gaming-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gaming-card-content {
+            padding: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1F2937;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3B82F6;
+        }
+
+        .submit-btn {
+            background: #3B82F6;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #1F2937;
+            color: #fff;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3B82F6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #3B82F6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid,
+            .streaming-grid,
+            .betting-grid,
+            .ai-grid,
+            .pricing-grid,
+            .gaming-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="https://placehold.co/180x60/1F2937/FFFFFF?text=Strimer" alt="Strimer Logo" onerror="this.onerror=null;this.src='https://placehold.co/180x60/1F2937/FFFFFF?text=Strimer';">
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#streaming">Streaming</a></li>
+                    <li><a href="#betting">Betting</a></li>
+                    <li><a href="#ai">AI Tools</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#gaming">Gaming</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Welcome to Strimer</h1>
+                <p>All your entertainment needs in one place. Movies, series, songs, live TV, betting, AI tools, gaming and more. One subscription, unlimited access.</p>
+                <a href="#pricing" class="cta-button">Get Started Now</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Strimer?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🎬</span>
+                        <h3>Unlimited Streaming</h3>
+                        <p>Access Netflix, Amazon Prime, Disney+, DStv, StarTimes, GoTV and more. All your favorite content in one place.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📺</span>
+                        <h3>100,000+ Live Channels</h3>
+                        <p>Watch TV stations from around the world. Africa, America, Europe, Asia - no limits, no restrictions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🤖</span>
+                        <h3>AI Powered Tools</h3>
+                        <p>ChatGPT integration, video creation, song generation, and answers to any question. Create content effortlessly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🎮</span>
+                        <h3>Gaming Hub</h3>
+                        <p>Access gaming sites, equipment, ammunition, and game downloads. Premium gaming experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💰</span>
+                        <h3>All Betting Sites</h3>
+                        <p>Betika and all major betting platforms available. Safe and secure transactions via M-Pesa.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📱</span>
+                        <h3>Play Over Other Apps</h3>
+                        <p>Watch content while using other apps. Picture-in-picture support and minimal data usage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Streaming Section -->
+        <section id="streaming" class="streaming">
+            <div class="container">
+                <h2 class="section-title">Streaming Services</h2>
+                <div class="streaming-grid">
+                    <div class="streaming-card">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Movies" alt="Movies" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1F2937/FFFFFF?text=Movies';">
+                        <div class="streaming-card-content">
+                            <h3>Movies & Series</h3>
+                            <p>Latest blockbusters, classic films, and exclusive series from all major platforms.</p>
+                        </div>
+                    </div>
+                    <div class="streaming-card">
+                        <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Songs" alt="Songs" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3B82F6/FFFFFF?text=Songs';">
+                        <div class="streaming-card-content">
+                            <h3>Music & Songs</h3>
+                            <p>Stream millions of songs, albums, and playlists from artists worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="streaming-card">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Animation" alt="Animation" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1F2937/FFFFFF?text=Animation';">
+                        <div class="streaming-card-content">
+                            <h3>Animation</h3>
+                            <p>Anime, cartoons, and animated movies for all ages in stunning quality.</p>
+                        </div>
+                    </div>
+                    <div class="streaming-card">
+                        <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Live+TV" alt="Live TV" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3B82F6/FFFFFF?text=Live+TV';">
+                        <div class="streaming-card-content">
+                            <h3>Live TV</h3>
+                            <p>100,000+ channels from every corner of the globe. No limits, no restrictions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Betting Section -->
+        <section id="betting" class="betting">
+            <div class="container">
+                <h2 class="section-title">Betting Platforms</h2>
+                <p style="text-align: center; color: #6b7280; margin-bottom: 3rem;">All major betting sites available with secure M-Pesa payments</p>
+                <div class="betting-grid">
+                    <div class="betting-card">
+                        <img src="https://placehold.co/200x200/3B82F6/FFFFFF?text=Betika" alt="Betika" onerror="this.onerror=null;this.src='https://placehold.co/200x200/3B82F6/FFFFFF?text=Betika';">
+                        <h3>Betika</h3>
+                        <p>Sports betting, casino games, and virtual sports</p>
+                    </div>
+                    <div class="betting-card">
+                        <img src="https://placehold.co/200x200/1F2937/FFFFFF?text=Betway" alt="Betway" onerror="this.onerror=null;this.src='https://placehold.co/200x200/1F2937/FFFFFF?text=Betway';">
+                        <h3>Betway</h3>
+                        <p>Football, basketball, tennis and more</p>
+                    </div>
+                    <div class="betting-card">
+                        <img src="https://placehold.co/200x200/3B82F6/FFFFFF?text=SportyBet" alt="SportyBet" onerror="this.onerror=null;this.src='https://placehold.co/200x200/3B82F6/FFFFFF?text=SportyBet';">
+                        <h3>SportyBet</h3>
+                        <p>Live betting and competitive odds</p>
+                    </div>
+                    <div class="betting-card">
+                        <img src="https://placehold.co/200x200/1F2937/FFFFFF?text=1xBet" alt="1xBet" onerror="this.onerror=null;this.src='https://placehold.co/200x200/1F2937/FFFFFF?text=1xBet';">
+                        <h3>1xBet</h3>
+                        <p>Hundreds of betting markets daily</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Section -->
+        <section id="ai" class="ai-section">
+            <div class="container">
+                <h2 class="section-title">AI Powered Tools</h2>
+                <div class="ai-grid">
+                    <div class="ai-card">
+                        <span class="feature-icon">💬</span>
+                        <h3>ChatGPT Integration</h3>
+                        <p>Unlimited AI conversation. Ask anything, get instant answers. Create videos, songs, and content.</p>
+                    </div>
+                    <div class="ai-card">
+                        <span class="feature-icon">🎥</span>
+                        <h3>Video Creation</h3>
+                        <p>Generate professional videos with AI. From $50 to $750 depending on complexity and length.</p>
+                    </div>
+                    <div class="ai-card">
+                        <span class="feature-icon">🎵</span>
+                        <h3>Song Generation</h3>
+                        <p>Create unique songs and music tracks. Perfect for creators and artists.</p>
+                    </div>
+                    <div class="ai-card">
+                        <span class="feature-icon">📄</span>
+                        <h3>PDF Tools</h3>
+                        <p>Create, edit, convert and manage PDF documents with ease.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2 class="section-title">Pricing Plans</h2>
+                <p style="text-align: center; color: #6b7280; margin-bottom: 2rem;">All payments via M-Pesa: 254111257780</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Basic</h3>
+                        <div class="price">$10<span style="font-size: 1rem;">/month</span></div>
+                        <ul>
+                            <li>Streaming access</li>
+                            <li>100+ live channels</li>
+                            <li>Music streaming</li>
+                            <li>Basic AI tools</li>
+                            <li>Standard support</li>
+                        </ul>
+                        <a href="mailto:strimer@example.com?subject=Interested%20in%20Basic%20Plan" class="pricing-btn">Get Started</a>
+                    </div>
+                    <div class="pricing-card" style="border-top-color: #1F2937; transform: scale(1.05);">
+                        <h3>Premium</h3>
+                        <div class="price">$25<span style="font-size: 1rem;">/month</span></div>
+                        <ul>
+                            <li>All streaming services</li>
+                            <li>10,000+ live channels</li>
+                            <li>Full music library</li>
+                            <li>Advanced AI tools</li>
+                            <li>Priority support</li>
+                            <li>Picture-in-picture</li>
+                            <li>Minimal data usage</li>
+                        </ul>
+                        <a href="mailto:strimer@example.com?subject=Interested%20in%20Premium%20Plan" class="pricing-btn">Get Started</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Ultimate</h3>
+                        <div class="price">$50<span style="font-size: 1rem;">/month</span></div>
+                        <ul>
+                            <li>Everything in Premium</li>
+                            <li>100,000+ channels</li>
+                            <li>All betting sites</li>
+                            <li>Full AI access</li>
+                            <li>Gaming hub access</li>
+                            <li>24/7 VIP support</li>
+                        </ul>
+                        <a href="mailto:strimer@example.com?subject=Interested%20in%20Ultimate%20Plan" class="pricing-btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gaming Section -->
+        <section id="gaming" class="gaming">
+            <div class="container">
+                <h2 class="section-title">Gaming Hub</h2>
+                <div class="gaming-grid">
+                    <div class="gaming-card">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Game+Downloads" alt="Game Downloads" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1F2937/FFFFFF?text=Game+Downloads';">
+                        <div class="gaming-card-content">
+                            <h3>Game Downloads</h3>
+                            <p>Access thousands of games. Premium downloads from $100 to $150.</p>
+                        </div>
+                    </div>
+                    <div class="gaming-card">
+                        <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Gaming+Equipment" alt="Gaming Equipment" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3B82F6/FFFFFF?text=Gaming+Equipment';">
+                        <div class="gaming-card-content">
+                            <h3>Gaming Equipment</h3>
+                            <p>Controllers, headsets, mice, keyboards and more.</p>
+                        </div>
+                    </div>
+                    <div class="gaming-card">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Gaming+Ammunition" alt="Gaming Ammunition" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1F2937/FFFFFF?text=Gaming+Ammunition';">
+                        <div class="gaming-card-content">
+                            <h3>Gaming Ammunition</h3>
+                            <p>In-game currency, upgrades, and power-ups.</p>
+                        </div>
+                    </div>
+                    <div class="gaming-card">
+                        <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Game+Sites" alt="Game Sites" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3B82F6/FFFFFF?text=Game+Sites';">
+                        <div class="gaming-card-content">
+                            <h3>Game Sites</h3>
+                            <p>Links to all major gaming platforms and communities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-form">
+                    <form id="contact-form" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="billing">Billing</option>
+                                <option value="partnership">Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                    <div id="success-message" class="success-message">
+                        <h3>✅ Thank you! We'll be in touch soon.</h3>
+                        <p>Your message has been received. For urgent matters, contact us via : 254705216347/254748973405</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="#streaming">Streaming</a>
+                <a href="#betting">Betting</a>
+                <a href="#ai">AI Tools</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#gaming">Gaming</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://wa.me/254705216347" target="_blank">📱 WhatsApp</a>
+                <a href="https://t.me/strimer" target="_blank">✈️ Telegram</a>
+                <a href="https://instagram.com/strimer" target="_blank">📸 Instagram</a>
+            </div>
+            <p style="margin-bottom: 1rem;">📱 M-Pesa: 254705216347/2547489073405</p>
+            <p style="color: #9ca3af;">&copy; 2026 Strimer. All rights reserved. | All payments via M-Pesa: 254705216347/2547489073405</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('success-message');
+
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
+
+            // Reset and show the form again after 5 seconds
+            setTimeout(() => {
+                form.style.display = 'block';
+                successMsg.style.display = 'none';
+                form.reset();
+            }, 5000);
+        }
+
+        // Smooth scrolling for internal navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (event) {
+                const href = this.getAttribute('href');
+
+                // The logo uses href="#". Scroll to the top safely.
+                if (href === '#') {
+                    event.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+
+                const target = document.querySelector(href);
+
+                if (target) {
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Close the mobile menu after selecting a link
+                    document.getElementById('nav-menu').classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
